@@ -16,14 +16,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.8.0
 
       - uses: pnpm/action-setup@v2.2.3
         with:
           version: 7.13.4
 
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2.5.2
         with:
           node-version: ${{ matrix.node }}
           cache: pnpm
@@ -34,7 +34,7 @@ jobs:
 
       - name: Create a release
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v1.9.0
         with:
           version: pnpm ci:version
           commit: 'chore: update versions'

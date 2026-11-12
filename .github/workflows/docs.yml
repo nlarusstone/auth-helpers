@@ -17,14 +17,14 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.8.0
 
       - uses: pnpm/action-setup@v2.2.3
         with:
           version: 7.13.4
 
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1.4.6
         with:
           node-version: ${{ matrix.node }}
           cache: pnpm
@@ -35,7 +35,7 @@ jobs:
           pnpm run docs
 
       - name: Publish
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs
